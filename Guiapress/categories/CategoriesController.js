@@ -22,4 +22,11 @@ router.get('/admin/categories/new', (req, res) => {
     res.render("admin/categories/new.ejs");
 });
 
+router.get('/admin/categories', (req, res) => {
+
+    Category.findAll().then(categories => {
+        res.render("admin/categories/index.ejs", { categories: categories });
+    });
+});
+
 module.exports = router;
